@@ -1,0 +1,22 @@
+1). Difference between HTTP1.1 vs HTTP2
+HTTP/1.1: 
+    Uses a textual format for requests and responses.
+    Processes requests sequentially, leading to potential delays.
+    Requires separate connections for parallel requests.
+    Headers are verbose and add overhead.
+    Doesn’t support proactive resource pushing.
+HTTP/2:
+    Utilizes a binary format, which is more efficient for data transmission.
+    Fully multiplexed, allowing multiple requests and responses to be sent concurrently over a single connection.
+    Can use a single connection for parallelism, reducing latency.
+    Implements header compression, reducing the size of headers exchanged between client and server.
+    Allows servers to push resources to the client cache before they are explicitly requested.
+
+2). Write a blog about objects and its internal representation in Javascript
+- Each object in JavaScript is internally represented as a collection of properties. These properties consist of a key (or name) and a value.
+- Properties can be either data properties (containing a specific value) or accessor properties (containing a getter or setter function)1.
+- Internally, JavaScript engines often use a hash table to store objects. In this representation, keys (property names) are hashed to optimize property access.
+- The hash table allows for quick lookup of properties, making object access efficient2.
+- Objects in JavaScript have an internal property called [[Prototype]] (also known as __proto__ in some contexts). This property refers to another object, creating a chain of prototypes.
+- Through this prototype chain, objects inherit properties and methods from their prototypes3.
+- You can access an object’s properties using dot notation (e.g., objectName.propertyName) or bracket notation (e.g., objectName['propertyName']).
