@@ -1,0 +1,15 @@
+Difference between document and window objects:
+    Document Object:
+    Represents a web page loaded in the browser.
+        Accessed via window.document or simply document.
+        Allows manipulation of HTML elements on the page.
+        Common properties include
+        activeElement: Returns the currently active element.
+        body: Provides access to the contents of the <body> element.
+        title: Retrieves the title of the document.
+    Window Object:
+        Represents the browser window or tab.
+        Contains properties, methods, and functionalities related to the entire window.
+        The document property within window points to the DOM document loaded in that window.
+        Global object accessible as window.
+        Includes properties like location, history, and methods like open() and close()
