@@ -1,4 +1,4 @@
-Difference between document and window objects:
+1). Difference between document and window objects:
     Document Object:
     Represents a web page loaded in the browser.
         Accessed via window.document or simply document.
