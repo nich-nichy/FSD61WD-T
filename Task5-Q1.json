@@ -22,19 +22,22 @@
       "name": "Nilgiris matriculation higher secondary school",
       "location": "Lovedale, Ooty",
       "till": 2018,
-      "percentage": "72.2"
+      "percentage": "72.2",
+      "studied": "HSC"
     },
     {
       "name": "P. A college of engineering & technology",
       "location": "Pollachi, Coimbatore",
       "till": 2020,
-      "percentage": "85.1"
+      "percentage": "85.1",
+       "studied": "Diploma in ECE"
     },
     {
       "name": "Mahalingam college of engineering & technology",
       "location": "Pollachi, Coimbatore",
       "till": 2023,
-      "percentage": "83.3"
+      "percentage": "83.3",
+       "studied": "B.Tech in Information Technology"
     }
   ],
   "companies": [
