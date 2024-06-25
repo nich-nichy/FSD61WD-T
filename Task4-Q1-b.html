@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Q1</title>
+  </head>
+  <body>
+    <script>
+      // To capitalise all the string in a array using IIFE
+      const stringArray = ["recalling", "javascript", "from guvi"];
+      (function () {
+        let res = [];
+        for (let i = 0; i < stringArray.length; i++) {
+          const words = stringArray[i].split(" ");
+          const letsTransformTitleCase = words.map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1)
+          );
+          stringArray[i] = letsTransformTitleCase.join(" ");
+        }
+      })();
+
+      console.log(stringArray, "Final array of capitalised letters");
+      //   console.log(stringArray.join(" "));
+    </script>
+  </body>
+</html>

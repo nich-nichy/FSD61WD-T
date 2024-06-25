@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Q2</title>
+  </head>
+  <body>
+    <script>
+      // To print all strinfs into capital letters using arrow function
+      const returnCapitalLetter = (stringArray) => {
+        let res = [];
+        for (let i = 0; i < stringArray.length; i++) {
+          const words = stringArray[i].split(" ");
+          const letsTransformTitleCase = words.map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1)
+          );
+          stringArray[i] = letsTransformTitleCase.join(" ");
+        }
+      };
+      const arr = ["recalling", "javascript", "from guvi"];
+      console.log(
+        returnCapitalLetter(arr),
+        "Final array of capitalised letters"
+      );
+    </script>
+  </body>
+</html>
