@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6 - Q1</title>
+  </head>
+  <body>
+    <script>
+      const api = "https://restcountries.com/v3.1/all";
+
+      // c). To return name, capital, flag using forEach
+      fetch(api)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(` `);
+          console.log(`To return name, capital, flag using forEach:`);
+          data?.forEach((country) => {
+            console.log(`Country Name: ${country.name.official}`);
+            country?.capital?.forEach((capital) => {
+              console.log(`Capital:  ${country.capital.join(", ")}`);
+            });
+            console.log(`Country Flag: ${country.flags.png}`);
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
