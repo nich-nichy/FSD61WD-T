@@ -1,0 +1,282 @@
+/* Global */
+body {
+    font-family: "Lato", sans-serif;
+}
+
+a {
+    color: #e6e6e6 !important;
+    text-decoration: none;
+}
+
+li {
+    font-size: smaller;
+}
+
+/* Font-Color */
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Navbar */
+
+.head-wrapper {
+    background-color: black;
+    color: white;
+}
+
+.navbar-wrapper {
+    padding: 0px 0px 0px 30px !important;
+}
+
+.nav-a-color {
+    color: #e6e6e6 !important;
+}
+
+/* Hero */
+
+.hero-theme {
+    background-color: rgb(10, 10, 10);
+}
+
+.hero-wrapper {
+    background-color: rgb(10, 10, 10);
+    height: 100%;
+}
+
+.hero-text-wrapper {
+    padding: 150px 0px 150px 0px;
+    text-align: center;
+}
+
+.hero-header {
+    font-size: 55px;
+}
+
+/* Content 1 */
+
+.content-one-wrapper {
+    margin: 50px 0px 0px 0px !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-one-left {
+    display: inline-block;
+    padding: 30px;
+}
+
+.content-one-left-p {
+    padding: 20px
+}
+
+.image-nazrul-wrapper {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-nazrul {
+    border-radius: 5px;
+    height: 465px;
+    width: 350px;
+}
+
+.rebel-para {
+    width: 485px;
+}
+
+.bton-theme {
+    border-radius: 4px !important;
+}
+
+/* Content acheivements */
+
+.awards-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.poetry-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0px 100px 0px 100px
+}
+
+.poetry-wrapper-two {
+    width: 40rem;
+}
+
+/* Footer */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.side-div,
+.center-div {
+    padding: 1rem;
+}
+
+.center-div {
+    flex: 1 1 20%;
+}
+
+.side-div {
+    flex: 1 1 40%;
+}
+
+.vertical-ruler {
+    border-left: 1px solid #999999;
+    height: 100px;
+    margin-top: 10px;
+}
+
+
+/* Responsiveness */
+
+/* Mobile devices (small) */
+
+@media (max-width: 600px) {
+    .image-nazrul {
+        height: 200px !important;
+        width: 150px !important;
+        margin-left: 100px;
+        margin-bottom: 100px;
+    }
+
+    .content-one-wrapper {
+        margin: 50px 0px 0px 0px !important;
+        width: 50% !important;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .content-one-left {
+        display: inline-block;
+        padding: 0px;
+    }
+
+    .content-one-left-p {
+        padding: 0px
+    }
+
+    .rebel-para {
+        width: 300px;
+        font-size: small;
+    }
+
+    .awards-wrapper {
+        margin-left: 0px;
+        margin-right: 0px;
+        display: inline-block !important;
+    }
+
+    .poetry-wrapper {
+        margin: 0px;
+        display: block;
+    }
+
+    .poetry-wrapper-two {
+        width: 20rem !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+    .image-nazrul {
+        height: 300px !important;
+        width: 250px !important;
+    }
+
+    .content-one-wrapper {
+        margin: 50px 0px 0px 0px !important;
+        width: 50% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content-one-left {
+        display: inline-block;
+        padding: 30px;
+    }
+
+    .content-one-left-p {
+        padding: 20px
+    }
+
+    .rebel-para {
+        width: 300px;
+        font-size: small;
+    }
+
+    .poetry-wrapper {
+        margin: 0px 50px 0px 50px;
+    }
+}
