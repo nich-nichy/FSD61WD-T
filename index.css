@@ -127,20 +127,23 @@ li {
     padding: 20px
 }
 
-.image-nazrul-wrapper {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+.content-one-btn-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
+
+
 
 .image-nazrul {
     border-radius: 5px;
     height: 465px;
     width: 350px;
+}
+
+.image-nazrul-wrapper {
+    display: flex;
+    justify-content: center !important;
 }
 
 .rebel-para {
@@ -199,14 +202,15 @@ li {
 
 /* Responsiveness */
 
-/* Mobile devices (small) */
-
 @media (max-width: 600px) {
     .image-nazrul {
         height: 200px !important;
         width: 150px !important;
-        margin-left: 100px;
-        margin-bottom: 100px;
+    }
+
+    .image-nazrul-wrapper {
+        display: grid !important;
+        justify-content: center !important;
     }
 
     .content-one-wrapper {
@@ -219,12 +223,18 @@ li {
     }
 
     .content-one-left {
-        display: inline-block;
+        display: grid;
         padding: 0px;
+        justify-content: center;
     }
 
     .content-one-left-p {
         padding: 0px
+    }
+
+    .content-one-btn-wrapper {
+        display: grid !important;
+        justify-content: center !important;
     }
 
     .rebel-para {
@@ -235,12 +245,13 @@ li {
     .awards-wrapper {
         margin-left: 0px;
         margin-right: 0px;
-        display: inline-block !important;
+        display: grid;
+        justify-content: center;
     }
 
     .poetry-wrapper {
-        margin: 0px;
-        display: block;
+        /* margin: 0px; */
+        display: grid;
     }
 
     .poetry-wrapper-two {
