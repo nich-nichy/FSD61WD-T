@@ -1,1 +1,22 @@
+body {
+    background-color: #cad2c5
+}
 
+.logo {
+    font-size: 40px;
+}
+
+.box3 {
+    width: 150px;
+    height: 100px;
+    margin: 5px;
+    background-color: #353535;
+    border-radius: 10px;
+}
+
+.box4 {
+    width: 100%;
+    height: 200px;
+    background-color: #353535;
+    border-radius: 10px;
+}
