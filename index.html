@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <style>
+      body {
+        background-color: #111827;
+        color: white;
+      }
+      .calculator-header {
+        text-align: center;
+        margin: 30px;
+      }
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        max-width: 260px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #020617;
+      }
+
+      .calculator button {
+        padding: 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #e0e0e0;
+      }
+
+      .calculator button:hover {
+        background-color: #cbd5e1;
+      }
+
+      .calculator .display {
+        grid-column: span 4;
+        text-align: right;
+        padding: 10px;
+        font-size: 24px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fde68a;
+        color: black;
+        height: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="calculator-header">Guvi task - DOM Calculator</h2>
+    <div id="calculator-wrapper"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = [
+          "7",
+          "8",
+          "9",
+          "/",
+          "4",
+          "5",
+          "6",
+          "*",
+          "1",
+          "2",
+          "3",
+          "-",
+          "0",
+          ".",
+          "=",
+          "+",
+          "C",
+        ];
+
+        const calculatorContainer =
+          document.getElementById("calculator-wrapper");
+
+        // Create calculator and display elements
+        const calculator = document.createElement("div");
+        calculator.className = "calculator";
+        const display = document.createElement("div");
+        display.className = "display";
+        calculator.appendChild(display);
+
+        // Evaluate the calc expression
+        const evaluateExpression = (expression) => {
+          expression = expression.replace(/\s+/g, "");
+          const regex = expression.split(/([\+\-\*\/])/).filter(Boolean);
+          const numbers = regex
+            .filter((_, index) => index % 2 === 0)
+            .map(parseFloat);
+          const operators = regex.filter((_, index) => index % 2 !== 0);
+          const operate = (a, op, b) => {
+            switch (op) {
+              case "+":
+                return a + b;
+              case "-":
+                return a - b;
+              case "*":
+                return a * b;
+              case "/":
+                return a / b;
+              default:
+                return NaN;
+            }
+          };
+          let result = numbers[0];
+          for (let i = 0; i < operators.length; i++) {
+            console.log(result, "result");
+            console.log(operators[i], "operators[i],");
+            console.log(numbers[i + 1], "numbers[i + 1]");
+            result = operate(result, operators[i], numbers[i + 1]);
+          }
+          return result;
+        };
+
+        // Button renderer
+        buttons.forEach((item, n) => {
+          const btn = document.createElement("button");
+          btn.innerText = item;
+          btn.addEventListener("click", () => {
+            let currentInput = display.innerHTML;
+            switch (item) {
+              case "C":
+                currentInput = "";
+                break;
+              case "=":
+                try {
+                  currentInput = evaluateExpression(currentInput);
+                } catch (error) {
+                  currentInput = "Error";
+                }
+                break;
+              default:
+                currentInput += item;
+            }
+            display.innerHTML = currentInput;
+          });
+          calculator.appendChild(btn);
+        });
+
+        calculatorContainer.appendChild(calculator);
+      });
+    </script>
+  </body>
+</html>
