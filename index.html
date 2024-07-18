@@ -3,173 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form and Table</title>
-  </head>
-  <body>
-    <h2 style="text-align: center">Form and Table</h2>
-    <div class="form-container">
-      <form id="dataForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required />
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required />
-        <label for="pincode">Pincode:</label>
-        <input type="text" id="pincode" name="pincode" required />
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-        <label for="district">District:</label>
-        <input type="text" id="district" name="district" required />
-        <label for="street">Street:</label>
-        <input type="text" id="street" name="street" required />
-        <div class="food-options">
-          <label class="">Choice of Food (choose at least 2):</label><br />
-          <input type="checkbox" name="food" value="Biriyani" /> Biriyani<br />
-          <input type="checkbox" name="food" value="Mandhi" /> Mandhi<br />
-          <input type="checkbox" name="food" value="Grill" /> Grill<br />
-          <input type="checkbox" name="food" value="Mojito" /> Mojito<br />
-          <input type="checkbox" name="food" value="Cutlery" /> Cutlery<br />
-        </div>
-        <button type="submit" class="submit">Submit</button>
-      </form>
-    </div>
-    <div></div>
-    <div class="table-container">
-      <table id="dataTable">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Pincode</th>
-            <th>Gender</th>
-            <th>Food</th>
-            <th>street</th>
-            <th>district</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
+    <title>Countdown Timer</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        margin-left: 200px;
-        margin-right: 200px;
-      }
-      .form-container,
-      .table-container {
-        margin: 20px 0;
-      }
-      .form-container form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-      .form-container label {
-        margin-bottom: 5px;
-      }
-      .form-container input,
-      .form-container select {
-        padding: 5px;
-        width: 100%;
-      }
-      .food-options {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        /* border: 1px solid gray; */
-        display: block;
-        padding: 10px;
-        border-radius: 20px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      }
-      .form-container .food-options {
-        grid-column: span 2;
-      }
-      .form-container button {
-        padding: 10px;
-        background-color: #5eead4;
-        color: white;
-        border: none;
-        cursor: pointer;
-        width: 200px;
-        border-radius: 10px;
-      }
-      .form-container button:hover {
-        background-color: #0f766e;
-      }
-      .food-header {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-decoration: underline;
-      }
-      .submit-wrapper {
-        display: grid;
+        display: flex;
+        justify-content: center;
         align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      table,
-      th,
-      td {
-        border: 1px solid #ccc;
-      }
-      th,
-      td {
-        padding: 10px;
-        text-align: left;
+      #count {
+        font-size: 3rem;
       }
     </style>
-    <script>
-      document
-        .getElementById("dataForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const form = event.target;
-          const formData = new FormData(form);
-          const firstName = formData.get("firstName");
-          const lastName = formData.get("lastName");
-          const email = formData.get("email");
-          const address = formData.get("address");
-          const pincode = formData.get("pincode");
-          const gender = formData.get("gender");
-          const foodOptions = form.querySelectorAll(
-            'input[name="food"]:checked'
-          );
-          if (foodOptions.length < 2) {
-            alert("Please choose at least 2 food options.");
-            return;
-          }
-          const food = Array.from(foodOptions)
-            .map((option) => option.value)
-            .join(", ");
-          const street = formData.get("street");
-          const district = formData.get("district");
-          const table = document
-            .getElementById("dataTable")
-            .querySelector("tbody");
-          const newRow = table.insertRow();
-          newRow.insertCell(0).innerText = firstName;
-          newRow.insertCell(1).innerText = lastName;
-          newRow.insertCell(2).innerText = email;
-          newRow.insertCell(3).innerText = address;
-          newRow.insertCell(4).innerText = pincode;
-          newRow.insertCell(5).innerText = gender;
-          newRow.insertCell(6).innerText = food;
-          newRow.insertCell(7).innerText = street;
-          newRow.insertCell(8).innerText = district;
-          form.reset();
-        });
-    </script>
+  </head>
+  <body>
+    <div id="count">10</div>
+    <script src="./index.js"></script>
   </body>
 </html>
