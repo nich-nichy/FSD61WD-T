@@ -3,149 +3,173 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Calculator</title>
-    <style>
-      body {
-        background-color: #111827;
-        color: white;
-      }
-      .calculator-header {
-        text-align: center;
-        margin: 30px;
-      }
-      .calculator {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        max-width: 260px;
-        margin: 50px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: #020617;
-      }
-
-      .calculator button {
-        padding: 20px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #e0e0e0;
-      }
-
-      .calculator button:hover {
-        background-color: #cbd5e1;
-      }
-
-      .calculator .display {
-        grid-column: span 4;
-        text-align: right;
-        padding: 10px;
-        font-size: 24px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #fde68a;
-        color: black;
-        height: 25px;
-      }
-    </style>
+    <title>Form and Table</title>
   </head>
   <body>
-    <h2 class="calculator-header">Guvi task - DOM Calculator</h2>
-    <div id="calculator-wrapper"></div>
-
+    <h2 style="text-align: center">Form and Table</h2>
+    <div class="form-container">
+      <form id="dataForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required />
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" required />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" required />
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" required />
+        <div class="food-options">
+          <label class="">Choice of Food (choose at least 2):</label><br />
+          <input type="checkbox" name="food" value="Biriyani" /> Biriyani<br />
+          <input type="checkbox" name="food" value="Mandhi" /> Mandhi<br />
+          <input type="checkbox" name="food" value="Grill" /> Grill<br />
+          <input type="checkbox" name="food" value="Mojito" /> Mojito<br />
+          <input type="checkbox" name="food" value="Cutlery" /> Cutlery<br />
+        </div>
+        <button type="submit" class="submit">Submit</button>
+      </form>
+    </div>
+    <div></div>
+    <div class="table-container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Pincode</th>
+            <th>Gender</th>
+            <th>Food</th>
+            <th>street</th>
+            <th>district</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin-left: 200px;
+        margin-right: 200px;
+      }
+      .form-container,
+      .table-container {
+        margin: 20px 0;
+      }
+      .form-container form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .form-container label {
+        margin-bottom: 5px;
+      }
+      .form-container input,
+      .form-container select {
+        padding: 5px;
+        width: 100%;
+      }
+      .food-options {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* border: 1px solid gray; */
+        display: block;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .form-container .food-options {
+        grid-column: span 2;
+      }
+      .form-container button {
+        padding: 10px;
+        background-color: #5eead4;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 200px;
+        border-radius: 10px;
+      }
+      .form-container button:hover {
+        background-color: #0f766e;
+      }
+      .food-header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-decoration: underline;
+      }
+      .submit-wrapper {
+        display: grid;
+        align-items: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+    </style>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const buttons = [
-          "7",
-          "8",
-          "9",
-          "/",
-          "4",
-          "5",
-          "6",
-          "*",
-          "1",
-          "2",
-          "3",
-          "-",
-          "0",
-          ".",
-          "=",
-          "+",
-          "C",
-        ];
-
-        const calculatorContainer =
-          document.getElementById("calculator-wrapper");
-
-        // Create calculator and display elements
-        const calculator = document.createElement("div");
-        calculator.className = "calculator";
-        const display = document.createElement("div");
-        display.className = "display";
-        calculator.appendChild(display);
-
-        // Evaluate the calc expression
-        const evaluateExpression = (expression) => {
-          expression = expression.replace(/\s+/g, "");
-          const regex = expression.split(/([\+\-\*\/])/).filter(Boolean);
-          const numbers = regex
-            .filter((_, index) => index % 2 === 0)
-            .map(parseFloat);
-          const operators = regex.filter((_, index) => index % 2 !== 0);
-          const operate = (a, op, b) => {
-            switch (op) {
-              case "+":
-                return a + b;
-              case "-":
-                return a - b;
-              case "*":
-                return a * b;
-              case "/":
-                return a / b;
-              default:
-                return NaN;
-            }
-          };
-          let result = numbers[0];
-          for (let i = 0; i < operators.length; i++) {
-            console.log(result, "result");
-            console.log(operators[i], "operators[i],");
-            console.log(numbers[i + 1], "numbers[i + 1]");
-            result = operate(result, operators[i], numbers[i + 1]);
+      document
+        .getElementById("dataForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const form = event.target;
+          const formData = new FormData(form);
+          const firstName = formData.get("firstName");
+          const lastName = formData.get("lastName");
+          const email = formData.get("email");
+          const address = formData.get("address");
+          const pincode = formData.get("pincode");
+          const gender = formData.get("gender");
+          const foodOptions = form.querySelectorAll(
+            'input[name="food"]:checked'
+          );
+          if (foodOptions.length < 2) {
+            alert("Please choose at least 2 food options.");
+            return;
           }
-          return result;
-        };
-
-        // Button renderer
-        buttons.forEach((item, n) => {
-          const btn = document.createElement("button");
-          btn.innerText = item;
-          btn.addEventListener("click", () => {
-            let currentInput = display.innerHTML;
-            switch (item) {
-              case "C":
-                currentInput = "";
-                break;
-              case "=":
-                try {
-                  currentInput = evaluateExpression(currentInput);
-                } catch (error) {
-                  currentInput = "Error";
-                }
-                break;
-              default:
-                currentInput += item;
-            }
-            display.innerHTML = currentInput;
-          });
-          calculator.appendChild(btn);
+          const food = Array.from(foodOptions)
+            .map((option) => option.value)
+            .join(", ");
+          const street = formData.get("street");
+          const district = formData.get("district");
+          const table = document
+            .getElementById("dataTable")
+            .querySelector("tbody");
+          const newRow = table.insertRow();
+          newRow.insertCell(0).innerText = firstName;
+          newRow.insertCell(1).innerText = lastName;
+          newRow.insertCell(2).innerText = email;
+          newRow.insertCell(3).innerText = address;
+          newRow.insertCell(4).innerText = pincode;
+          newRow.insertCell(5).innerText = gender;
+          newRow.insertCell(6).innerText = food;
+          newRow.insertCell(7).innerText = street;
+          newRow.insertCell(8).innerText = district;
+          form.reset();
         });
-
-        calculatorContainer.appendChild(calculator);
-      });
     </script>
   </body>
 </html>
