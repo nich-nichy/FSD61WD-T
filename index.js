@@ -35,7 +35,7 @@ const renderCountries = (countries) => {
     const card = document.createElement("div");
     card.className = "col-lg-4 col-sm-12 mb-3";
     card.innerHTML = `
-      <div class="card">
+      <div class="card text-bg-dark">
         <div class="card-body">
           <h5 class="card-header text-center mb-2">${name}</h5>
           <img src=${
@@ -92,13 +92,13 @@ const renderCountries = (countries) => {
 };
 
 const renderInPopup = (data, countryName) => {
-  //   console.log(data);
+  console.log(data);
   const weatherModalBody = document.getElementById("weatherModalBody");
   const weather = data?.weather[0]?.main;
   const weatherDescription = data.weather[0].description;
   weatherModalBody.innerHTML = `
-    <p style="font-weight: bold">Country: <span style="font-weight: lighter">${countryName}</span></p>
-    <p style="font-weight: bold">Weather: <span style="font-weight: lighter">${weather} (${weatherDescription})</span></p>
+    <p style="font-weight: bold; color: #0f172a !important">Country: <span style="font-weight: lighter">${countryName}</span></p>
+    <p style="font-weight: bold; color: #0f172a !important">Weather: <span style="font-weight: lighter">${weather} (${weatherDescription})</span></p>
   `;
   const weatherModal = new bootstrap.Modal(
     document.getElementById("weatherModal")
