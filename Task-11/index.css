@@ -2,3 +2,42 @@
 .menu-icon {
     color: black;
 }
+
+.customised-card-wrapper {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+.customised-card {
+    width: 30rem;
+    height: 100%;
+}
+
+.carousel-inner .carousel-item {
+    height: 900px;
+    /* Set the desired height */
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    /* This will crop the image to fit within the specified height */
+    height: 100%;
+    /* Ensure the image takes the full height of the carousel item */
+    width: 100%;
+    /* Ensure the image takes the full width of the carousel item */
+}
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+    .customised-card-wrapper {
+        width: 100%;
+        text-align: center;
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
