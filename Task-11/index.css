@@ -5,7 +5,7 @@
 
 .customised-card-wrapper {
     position: absolute;
-    top: 20%;
+    top: 30%;
     right: 10%;
     transform: translateY(-50%);
     text-align: left;
@@ -16,18 +16,77 @@
     height: 100%;
 }
 
-.carousel-inner .carousel-item {
-    height: 900px;
-    /* Set the desired height */
+.carousel-inner {
+    height: 500px;
 }
 
-.carousel-inner img {
-    object-fit: cover;
-    /* This will crop the image to fit within the specified height */
+.carousel-item img {
     height: 100%;
-    /* Ensure the image takes the full height of the carousel item */
-    width: 100%;
-    /* Ensure the image takes the full width of the carousel item */
+    object-fit: cover;
+}
+
+.customised-card-wrapper {
+    position: absolute;
+    padding: 20px;
+}
+
+.carousel-two-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.carousel-two-wrapper {
+    align-content: center !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.latest-news-wrapper {
+    margin-top: 17rem;
+    margin-bottom: 10rem;
+}
+
+.latest-news-header {
+    margin-top: 10rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-height {
+    height: 30rem;
+}
+
+.card-image {
+    height: 200px;
+}
+
+
+.card-height {
+    height: 100%;
+}
+
+.card-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+    color: white;
 }
 
 /* Responsiveness */
