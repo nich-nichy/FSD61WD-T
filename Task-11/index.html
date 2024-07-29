@@ -18,25 +18,67 @@
 <body>
     <header>
         <nav class="navbar mb-0">
-            <div class="container-fluid ms-3 me-3">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Go To</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        Which news are you Interested in ?.
+                    </div>
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown">
+                            Menu
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a href="/" class="p-4 pt-2 pb-2 text-decoration-none link-dark">Home</a></li>
+                            <li><a href="sports.html?content=sports"
+                                    class="p-4 pt-2 pb-2 text-decoration-none link-dark">Sports</a></li>
+                            <li><a href="politics.html?content=politics"
+                                    class="p-4 pt-2 pb-2 text-decoration-none link-dark">Politics</a></li>
+                            <li><a href="business.html?content=business"
+                                    class="p-4 pt-2 pb-2 text-decoration-none link-dark">Business</a></li>
+                            <li><a href="health.html?content=health"
+                                    class="p-4 pt-2 pb-2 text-decoration-none link-dark">Health</a></li>
+                            <li><a href="entertainment.html?content=entertainment"
+                                    class="p-4 pt-2 pb-2 text-decoration-none link-dark">Entertainment</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid ms-3 me-3 nav-container">
+                <a class="btn me-3 menu-mob navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                    role="button" aria-controls="offcanvasExample">
+                    <i class="fa-solid fa-bars menu-icon"></i>
+                </a>
                 <div class="d-flex">
-                    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler menu-wrapper me-3" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa-solid fa-bars menu-icon"></i>
                     </button>
-                    <form class="d-flex">
+                    <form class="search-wrapper">
                         <input class="form-control me-2 rounded-pill" type="search" placeholder="Search"
                             aria-label="Search">
                         <button class="btn rounded-pill border" type="submit"><i
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
-                <div>
-                    <h1 class="text-center">.bharatbulletin</h1>
-                    <p class="text-center">Uncover the stories - Get the news first</p>
+                <div class="">
+                    <h1 class="text-center nav-head">.bharatbulletin</h1>
+                    <p class="text-center nav-desc">Uncover the stories - Get the news first</p>
                 </div>
-                <div class="d-flex">
+                <form class="search-wrapper-md">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn rounded-pill border" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="nav-btn-wrapper">
                     <button class="btn border rounded-pill me-3" type="submit"><i class="fa-solid fa-phone"></i> Contact
                         Us </button>
                     <button class="btn bg-dark text-white rounded-pill" type="submit">Subscribe
@@ -44,7 +86,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container mt-2">
+        <div class="container mt-2 nav-two-md">
             <div class="d-flex align-items-center justify-content-center">
                 <div class="row row-cols-6">
                     <a href="/" class="p-4 pt-2 pb-2 text-decoration-none link-dark">Recent</a>

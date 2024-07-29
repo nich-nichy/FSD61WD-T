@@ -3,6 +3,10 @@
     color: black;
 }
 
+.menu-mob {
+    display: none !important;
+}
+
 .customised-card-wrapper {
     position: absolute;
     top: 30%;
@@ -40,6 +44,18 @@
     align-content: center !important;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.search-wrapper-md {
+    display: none !important;
+}
+
+.nav-btn-wrapper {
+    display: flex;
 }
 
 .latest-news-wrapper {
@@ -91,12 +107,106 @@
 
 /* Responsiveness */
 
-@media (max-width: 768px) {
-    .customised-card-wrapper {
-        width: 100%;
-        text-align: center;
-        right: auto;
-        left: 50%;
-        transform: translate(-50%, -50%);
+@media (max-width: 600px) {
+    .nav-head {
+        text-align: end !important;
     }
+
+    .nav-desc {
+        font-size: small !important;
+    }
+
+    .menu-mob {
+        display: block !important;
+    }
+
+    .nav-two-md {
+        display: none;
+    }
+
+    .nav-container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+
+    .nav-btn-wrapper {
+        display: none;
+    }
+
+    .menu-wrapper {
+        display: none !important;
+    }
+
+    .search-wrapper {
+        display: none !important;
+    }
+
+    .search-wrapper-md {
+        display: none !important;
+    }
+
+    .customised-card-wrapper {
+        position: absolute;
+        top: 50%;
+        right: 15%;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .carousel-inner {
+        height: 400px !important;
+    }
+
+    .card-header-md {
+        /* font-size: 13px !important; */
+    }
+
+    .card-desc-md {
+        /* font-size: 10px !important; */
+    }
+
 }
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .nav-container {
+        justify-content: space-around !important;
+    }
+
+    .nav-btn-wrapper {
+        display: none;
+    }
+
+    .search-wrapper {
+        display: none;
+    }
+
+    .search-wrapper-md {
+        display: flex !important;
+    }
+
+    .customised-card-wrapper {
+        position: absolute;
+        top: 50%;
+        right: 15%;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .carousel-inner {
+        height: 400px !important;
+    }
+
+    .card-header-md {
+        font-size: 13px !important;
+    }
+
+    .card-desc-md {
+        font-size: 10px !important;
+    }
+
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {}
+
+@media (min-width: 1201px) {}

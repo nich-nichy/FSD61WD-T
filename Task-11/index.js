@@ -100,9 +100,11 @@ const createCard = (image, header, content, url, publishedAt) => `
         <div class="card mb-4 box-shadow" style="height: 33rem">
         <img src="${image}" class="card-img-top card-image" alt="${header}">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${header}</h5>
-            <p class="card-text">${truncateText(content, 100)}</p>
-            <p class="text-muted">Published: ${formatDate(publishedAt)}</p>
+            <h5 class="card-title card-header-md">${header}</h5>
+            <p class="card-text card-desc-md">${truncateText(content, 100)}</p>
+            <p class="text-muted card-desc-md">Published: ${formatDate(
+              publishedAt
+            )}</p>
             <button type="button" class="mt-auto btn btn-lg btn-block btn-outline-primary " onclick="window.location.href='${url}'">Explore <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
@@ -122,9 +124,11 @@ const createCardDynamicallyForAll = (
         <div class="card mb-4 box-shadow" style="height: 33rem">
         <img src="${image}" class="card-img-top card-image" alt="${header}">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${header}</h5>
-            <p class="card-text">${truncateText(content, 100)}</p>
-            <p class="text-muted">Published: ${formatDate(publishedAt)}</p>
+            <h5 class="card-title card-header-md">${header}</h5>
+            <p class="card-text card-desc-md">${truncateText(content, 100)}</p>
+            <p class="text-muted card-desc-md">Published: ${formatDate(
+              publishedAt
+            )}</p>
             <button type="button" class="mt-auto btn btn-lg btn-block btn-outline-primary " onclick="window.location.href='${url}'">Explore <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
