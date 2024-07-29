@@ -10,22 +10,23 @@ const contentArr = [
 ];
 
 async function getNewsData(type, query) {
-  const url = type?.toLowerCase()?.includes("everything")
-    ? `https://newsapi.org/v2/${type}?q=${query}`
-    : `https://newsapi.org/v2/${type}?country=in`;
+  let url = type?.toLowerCase()?.includes("everything")
+    ? `https://real-time-news-data.p.rapidapi.com/search?query=${query}&limit=50&time_published=anytime&country=IN&lang=en`
+    : `https://real-time-news-data.p.rapidapi.com/search?query=latest&limit=50&time_published=7d&country=IN&lang=en`;
+
   try {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        "X-Api-Key": "e24f7b48197f4be39fc8dbbb5f6d08fe",
+        "x-rapidapi-key": "41fb6bf81dmshf5cc04b56e7f029p198756jsnc9a35e8ec8be",
       },
     });
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
     const json = await response.json();
-    // console.log(json);
-    return json?.articles;
+    console.log({ json });
+    return json?.data;
   } catch (error) {
     console.error(error.message);
     return error.message;
@@ -46,7 +47,7 @@ const formatDate = (dateString) => {
 };
 
 const getCarouselData = async (newsFeed, mode) => {
-  // console.log({ newsFeed, mode });
+  console.log({ newsFeed, mode });
   let carouselItems = newsFeed
     .map((headline, index) => {
       return `
@@ -54,22 +55,22 @@ const getCarouselData = async (newsFeed, mode) => {
       mode?.toLowerCase().includes("hero")
         ? `
         <div class="carousel-item ${index === 0 ? "active" : ""}">
-          <img src="${headline?.urlToImage}" class="d-block w-100" alt="${
+          <img src="${headline.photo_url}" class="d-block w-100" alt="${
             headline?.title
           }">
           <div class="customised-card-wrapper">
               <div class="card customised-card">
                   <div class="card-body">
                       <h5 class="card-title customised-card-head fs-2">${truncateText(
-                        headline?.title,
+                        headline.title,
                         100
                       )}</h5>
                       <p class="card-text customised-card-desc">${truncateText(
-                        headline?.description,
+                        headline.snippet,
                         150
                       )}</p>
                       <a href="${
-                        headline?.url
+                        headline.source_url
                       }" class="btn btn-lg btn-block btn-outline-primary rounded-pill me-3 customised-card-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
                   </div>
               </div>
@@ -82,11 +83,9 @@ const getCarouselData = async (newsFeed, mode) => {
                   <h5 class="card-title fs-2 ps-5 pe-5 card-two-head">${
                     headline?.title
                   }</h5>
-                  <p class="card-two-desc">Provider: ${
-                    headline?.source.name
-                  }</p>
+                  <p class="card-two-desc">Provider: ${headline?.snippet}</p>
                   <a href="${
-                    headline?.url
+                    headline?.source_url
                   }" class="btn btn-lg btn-block btn-outline-primary card-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </div>
@@ -104,7 +103,10 @@ const createCard = (image, header, content, url, publishedAt) => `
         <div class="card mb-4 box-shadow card-ht">
         <img src="${image}" class="card-img-top card-image" alt="${header}">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title card-header-md">${header}</h5>
+            <h5 class="card-title card-header-md">${truncateText(
+              header,
+              100
+            )}</h5>
             <p class="card-text card-desc-md">${truncateText(content, 100)}</p>
             <p class="text-muted card-desc-md">Published: ${formatDate(
               publishedAt
@@ -146,11 +148,11 @@ const renderRow = (cards) => {
       ${cards
         .map((card) =>
           createCard(
-            card.urlToImage,
+            card.photo_url,
             card.title,
-            card.description,
-            card.url,
-            card.publishedAt
+            card.snippet,
+            card.source_url,
+            card.published_datetime_utc
           )
         )
         .join("")}
@@ -174,6 +176,7 @@ const renderCardsForSubLinks = (cards) => {
 };
 
 const validateNewsArray = async (array, mode) => {
+  console.log(array);
   let checkArray = array && array.length > 0 ? array : [];
   if (mode?.toLowerCase().includes("top-headlines")) {
     checkArray = getRandomNews(checkArray, 5, "top-headlines");
@@ -187,35 +190,8 @@ const validateNewsArray = async (array, mode) => {
 
 const getRandomNews = (array, n, mode) => {
   // console.log({ array, n, mode });
-  let filteredArray;
-  let shuffled = array?.sort(() => 0.5 - Math.random());
-  let returnDesiredArray = shuffled.slice(0, n);
-  if (mode?.toLowerCase().includes("top-headlines")) {
-    filteredArray = array?.slice(0, 5).filter((news) => !news.urlToImage);
-    // console.log({ filteredArray }, "headlines");
-    return filteredArray;
-  } else if (contentArr?.includes(mode)) {
-    ("yes the mode is present");
-    filteredArray = array
-      ?.slice(0, n)
-      .filter(
-        (news) =>
-          news.urlToImage &&
-          news.title !== "[Removed]" &&
-          news.description !== "[Removed]"
-      );
-    // console.log({ filteredArray }, "headlines");
-    return filteredArray;
-  } else {
-    filteredArray = returnDesiredArray.filter(
-      (news) =>
-        news.urlToImage &&
-        news.title !== "[Removed]" &&
-        news.description !== "[Removed]"
-    );
-    // console.log(filteredArray, "feed");
-    return filteredArray;
-  }
+  // let shuffled = shuffled.slice(0, n);
+  return array.slice(0, n);
 };
 
 const renderDynamicContent = async (params) => {
@@ -245,6 +221,7 @@ const renderEntireHtml = async () => {
     const fetchHeadlines = await getNewsData("top-headlines", "");
     const fetchNewsFeed = await getNewsData("everything", "recent");
     const fetchLatest = await getNewsData("everything", "latest");
+    console.log({ fetchHeadlines, fetchNewsFeed });
     const topHeadlines = await validateNewsArray(
       fetchHeadlines,
       "top-headlines"
