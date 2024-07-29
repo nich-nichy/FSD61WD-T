@@ -58,19 +58,19 @@ const getCarouselData = async (newsFeed, mode) => {
             headline?.title
           }">
           <div class="customised-card-wrapper">
-              <div class="card customised-card ">
+              <div class="card customised-card">
                   <div class="card-body">
-                      <h5 class="card-title fs-2">${truncateText(
+                      <h5 class="card-title customised-card-head fs-2">${truncateText(
                         headline?.title,
                         100
                       )}</h5>
-                      <p class="card-text">${truncateText(
+                      <p class="card-text customised-card-desc">${truncateText(
                         headline?.description,
                         150
                       )}</p>
                       <a href="${
                         headline?.url
-                      }" class="btn btn-lg btn-block btn-outline-primary rounded-pill me-3">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                      }" class="btn btn-lg btn-block btn-outline-primary rounded-pill me-3 customised-card-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
                   </div>
               </div>
           </div>
@@ -79,11 +79,15 @@ const getCarouselData = async (newsFeed, mode) => {
           <div class="carousel-two-wrapper mb-5">
               <div class="card">
                 <div class="card-body text-center">
-                  <h5 class="card-title fs-2 ps-5 pe-5">${headline?.title}</h5>
-                  <p>Provider: ${headline?.source.name}</p>
+                  <h5 class="card-title fs-2 ps-5 pe-5 card-two-head">${
+                    headline?.title
+                  }</h5>
+                  <p class="card-two-desc">Provider: ${
+                    headline?.source.name
+                  }</p>
                   <a href="${
                     headline?.url
-                  }" class="btn btn-lg btn-block btn-outline-primary">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                  }" class="btn btn-lg btn-block btn-outline-primary card-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </div>
           </div>
@@ -97,7 +101,7 @@ const getCarouselData = async (newsFeed, mode) => {
 const createCard = (image, header, content, url, publishedAt) => `
     <div class="container col-12 col-md-4">
       <div class="card-deck mb-3">
-        <div class="card mb-4 box-shadow" style="height: 33rem">
+        <div class="card mb-4 box-shadow card-ht">
         <img src="${image}" class="card-img-top card-image" alt="${header}">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title card-header-md">${header}</h5>
@@ -105,7 +109,7 @@ const createCard = (image, header, content, url, publishedAt) => `
             <p class="text-muted card-desc-md">Published: ${formatDate(
               publishedAt
             )}</p>
-            <button type="button" class="mt-auto btn btn-lg btn-block btn-outline-primary " onclick="window.location.href='${url}'">Explore <i class="fa-solid fa-arrow-right"></i></button>
+            <button type="button" class="mt-auto btn btn-lg btn-block btn-outline-primary card-btn" onclick="window.location.href='${url}'">Explore <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
