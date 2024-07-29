@@ -25,7 +25,7 @@ async function getNewsData(type, query) {
       throw new Error(`Response status: ${response.status}`);
     }
     const json = await response.json();
-    console.log({ json });
+    // console.log({ json });
     return json?.data;
   } catch (error) {
     console.error(error.message);
@@ -47,7 +47,7 @@ const formatDate = (dateString) => {
 };
 
 const getCarouselData = async (newsFeed, mode) => {
-  console.log({ newsFeed, mode });
+  // console.log({ newsFeed, mode });
   let carouselItems = newsFeed
     .map((headline, index) => {
       return `
@@ -176,7 +176,7 @@ const renderCardsForSubLinks = (cards) => {
 };
 
 const validateNewsArray = async (array, mode) => {
-  console.log(array);
+  // console.log(array);
   let checkArray = array && array.length > 0 ? array : [];
   if (mode?.toLowerCase().includes("top-headlines")) {
     checkArray = getRandomNews(checkArray, 5, "top-headlines");
@@ -221,7 +221,7 @@ const renderEntireHtml = async () => {
     const fetchHeadlines = await getNewsData("top-headlines", "");
     const fetchNewsFeed = await getNewsData("everything", "recent");
     const fetchLatest = await getNewsData("everything", "latest");
-    console.log({ fetchHeadlines, fetchNewsFeed });
+    // console.log({ fetchHeadlines, fetchNewsFeed });
     const topHeadlines = await validateNewsArray(
       fetchHeadlines,
       "top-headlines"
