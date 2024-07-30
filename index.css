@@ -59,12 +59,27 @@
 
 /* Respnsiveness */
 
-@media (max-width: 600px) {
+@media (max-width: 738px) {
     .card-wrapper {
-        margin-top: 20px !important;
-        margin-bottom: 20px !important;
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .card-img-top {
+        object-fit: cover;
+        height: 200px;
+    }
+
+    .blockquote {
+        font-size: 1.2rem;
+    }
+
+    .card-custom {
+        width: auto !important;
     }
 
     .home-card-head {
@@ -76,14 +91,30 @@
         font-size: 14px !important;
     }
 
+    .mob-btn {
+        font-size: 14px !important;
+    }
+
     .facts-wrapper {
-        display: table-row !important;
-        margin-left: 10px;
-        margin-right: 10px;
+        display: block !important;
     }
 
     .btn-wrapper {
         display: flex !important;
         flex-direction: row !important;
+    }
+
+    .fact-head-home {
+        margin: 10px !important;
+        font-size: 14px !important;
+    }
+
+    .fact-foot-btn {
+        margin: 10px !important;
+        font-size: 14px !important;
+    }
+
+    .col-md-4 {
+        flex: 0 0 100%;
     }
 }
