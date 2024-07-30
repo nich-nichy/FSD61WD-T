@@ -1,4 +1,4 @@
-** This project is a Guvi task - Cat Facts **
+## This project is a Guvi task - Cat Facts
 
 ## Description
 It has some interesting cat facts.
