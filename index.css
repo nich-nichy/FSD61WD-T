@@ -1,0 +1,16 @@
+body {
+    background-color: #1e293b;
+}
+
+.card {
+    height: 30rem;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.container {
+    margin-top: 50px;
+}
