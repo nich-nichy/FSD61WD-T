@@ -69,7 +69,7 @@ const renderCatFacts = (image, fact) => {
   // console.log({ image: image.url, fact }, "from acts");
   return `
     <div class="d-flex justify-content-center align-items-center min-vh-100 facts-wrapper">
-      <a type="button" class="btn btn-lg btn-outline-primary rounded-pill m-5" href="index.html">
+      <a type="button" class="btn btn-lg btn-outline-primary rounded-pill m-5 fact-head-home" href="index.html">
         <i class="fa-solid fa-house me-1"></i>Home
       </a>
       <div class="card card-custom shadow rounded">
@@ -81,10 +81,10 @@ const renderCatFacts = (image, fact) => {
         </div>
       </div>
       <div class="d-flex flex-column btn-wrapper">
-        <a type="button" class="btn btn-lg btn-custom-primary rounded-pill m-5" href="facts.html?mode=facts">
+        <a type="button" class="btn btn-lg btn-custom-primary rounded-pill m-5 fact-foot-btn" href="facts.html?mode=facts">
           <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Next Fact
         </a>
-        <a type="button" class="btn btn-lg btn-custom-secondary rounded-pill m-5" href="moreFacts.html?mode=moreFacts">
+        <a type="button" class="btn btn-lg btn-custom-secondary rounded-pill m-5 fact-foot-btn" href="moreFacts.html?mode=moreFacts">
           <i class="fa-solid fa-paper-plane me-1"></i> All
         </a>
       </div>
