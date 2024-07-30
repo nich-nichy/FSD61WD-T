@@ -8,6 +8,7 @@ const contentArr = [
   "health",
   "entertainment",
 ];
+let skeletons = document.getElementById("skeletons");
 
 async function getNewsData(type, query) {
   let url = type?.toLowerCase()?.includes("everything")
@@ -26,6 +27,7 @@ async function getNewsData(type, query) {
     }
     const json = await response.json();
     // console.log({ json });
+    skeletons.innerHTML = "";
     return json?.data;
   } catch (error) {
     console.error(error.message);
@@ -208,11 +210,38 @@ const renderDynamicContent = async (params) => {
   // console.log(desiredContent, "fetchDesiredContent");
 };
 
+function createSkeletons(count) {
+  let skeletonHTML = "";
+  for (let i = 0; i < count; i++) {
+    skeletonHTML += `
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card" aria-hidden="true">
+            <img src="..." class="card-img-top card-placeholder" alt="...">
+            <div class="card-body">
+              <h5 class="card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </h5>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+            </div>
+          </div>
+        </div>
+      `;
+  }
+  skeletons.innerHTML = skeletonHTML;
+}
+
 const renderEntireHtml = async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const toSearch = urlParams.get("content");
   // console.log({ toSearch });
-
+  createSkeletons(9);
   const toSearchNews = contentArr.filter((content) =>
     content.toLowerCase().includes(toSearch?.toLowerCase())
   );
@@ -221,7 +250,6 @@ const renderEntireHtml = async () => {
     const fetchHeadlines = await getNewsData("top-headlines", "");
     const fetchNewsFeed = await getNewsData("everything", "recent");
     const fetchLatest = await getNewsData("everything", "latest");
-    // console.log({ fetchHeadlines, fetchNewsFeed });
     const topHeadlines = await validateNewsArray(
       fetchHeadlines,
       "top-headlines"
